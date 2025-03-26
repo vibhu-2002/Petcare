@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .pet-details
+    h1= pet.Pet_Name
+    .details
+      p Type: #{pet.Pet_Type}
+      p Breed: #{pet.Pet_Breed}
+      p Owner: #{pet.User_name}
+    
+    .actions
+      a.button(href=`/pets/${pet.Pet_ID}/health-records`) View Health Records
+      a.button(href=`/pets/${pet.Pet_ID}/edit`) Edit Pet
+      a.button(href="/pets") Back to List

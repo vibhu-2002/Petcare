@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 Health Records for #{pet.Pet_Name}
+  a.button(href=`/pets/${pet.Pet_ID}/health-records/new`) Add New Record
+  table
+    thead
+      tr
+        th Date
+        th Medication
+        th History
+        th Actions
+    tbody
+      each record in healthRecords
+        tr
+          td= record.Vaccination_Date
+          td= record.Medication
+          td= record.Medical_History
+          td
+            a(href=`/health-records/${record.Record_ID}`) View
+            a(href=`/health-records/${record.Record_ID}/edit`) Edit
+  a.button(href=`/pets/${pet.Pet_ID}`) Back to Pet
