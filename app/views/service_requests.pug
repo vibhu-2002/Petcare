@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1 Service Requests
+  a.button(href="/service-requests/new") Create New Request
+  table
+    thead
+      tr
+        th Type
+        th Date
+        th Location
+        th Pet
+        th Status
+        th Actions
+    tbody
+      each request in serviceRequests
+        tr
+          td= request.Request_Type
+          td= request.Request_Date
+          td= request.Request_Location
+          td= request.Pet_Name
+          td= request.Status
+          td
+            a(href=`/service-requests/${request.Request_ID}`) View
+            if user.User_ID === request.User_ID
+              a(href=`/service-requests/${request.Request_ID}/edit`) Edit

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h1 Pet List
+  a.button(href="/pets/new") Add New Pet
+  table
+    thead
+      tr
+        th Pet Name
+        th Type
+        th Breed
+        th Owner
+        th Actions
+    tbody
+      each pet in pets
+        tr
+          td= pet.Pet_Name
+          td= pet.Pet_Type
+          td= pet.Pet_Breed
+          td= pet.User_name
+          td
+            a(href=`/pets/${pet.Pet_ID}`) View
+            a(href=`/pets/${pet.Pet_ID}/health-records`) Health
+            a(href=`/pets/${pet.Pet_ID}/edit`) Edit

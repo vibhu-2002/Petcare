@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .register-form
+    h1 Register
+    form(action="/register" method="POST")
+      .form-group
+        label(for="name") Name:
+        input(type="text" id="name" name="name" required)
+      .form-group
+        label(for="email") Email:
+        input(type="email" id="email" name="email" required)
+      .form-group
+        label(for="password") Password:
+        input(type="password" id="password" name="password" required)
+      button(type="submit") Register
+    p Already have an account? 
+      a(href="/login") Login here

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  .hero
+    h1 Welcome to Pet Care
+    p Manage your pets, schedule vet visits, and track health records in one place.
+    .actions
+      a.button(href='/pets') Go to Dashboard
+      br
+      br
+      if !user
+        a.button(href='/login') Login
+        br
+        br
+        a.button(href='/register') Register
+
+  .features
+    h2 Features
+    ul
+      li Manage your pet's profile
+      li Book vet appointments online
+      li Store & access health records
+      li Browse pets for adoption
+      li Join the pet owner community

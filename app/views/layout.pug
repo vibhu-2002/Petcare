@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title Pet Care Application
+  link(rel="stylesheet" href="/stylesheet/style.css")
+  body
+    header
+      h1 Pet Care Application
+      nav
+        a(href='/') Home 
+       
+        a(href='/pets') Pets
+         
+        a(href='/health-records') Health Records
+        
+        
+        a(href='/service-requests') Service Requests
+         
+        if user
+          a(href='/logout') Logout
+        else
+          a(href='/login') Login
+          
+          
+          a(href='/register') Register
+    main
+      block content
+    footer
+      p © 2023 Pet Care Application
