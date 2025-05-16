@@ -2,15 +2,27 @@ extends layout
 
 block content
   h1= title
-  form(method="POST")
+
+  form(
+    action=pet && pet.Pet_ID ? '/pets/' + pet.Pet_ID + '/edit' : '/pets',
+    method="POST",
+    enctype="multipart/form-data"
+  )
     .form-group
       label(for="name") Pet Name:
-      input(type="text" id="name" name="name" value=pet.Pet_Name required)
+      input#name(type="text", name="name", value=pet.Pet_Name || '', required)
+
     .form-group
       label(for="type") Pet Type:
-      input(type="text" id="type" name="type" value=pet.Pet_Type required)
+      input#type(type="text", name="type", value=pet.Pet_Type || '', required)
+
     .form-group
       label(for="breed") Breed:
-      input(type="text" id="breed" name="breed" value=pet.Pet_Breed)
+      input#breed(type="text", name="breed", value=pet.Pet_Breed || '')
+
+    .form-group
+      label(for="petImage") Pet Image:
+      input#petImage(type="file", name="petImage", accept="image/*")
+
     button(type="submit") Save
     a.button(href="/pets") Cancel

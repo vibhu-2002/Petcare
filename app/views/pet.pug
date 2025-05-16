@@ -9,6 +9,6 @@ block content
       p Owner: #{pet.User_name}
     
     .actions
-      a.button(href=`/pets/${pet.Pet_ID}/health-records`) View Health Records
+      a(href=`/pets/${pet.Pet_ID}/health-records`) Health Records
       a.button(href=`/pets/${pet.Pet_ID}/edit`) Edit Pet
       a.button(href="/pets") Back to List

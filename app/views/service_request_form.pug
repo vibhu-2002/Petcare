@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1 New Service Request
+
+  form(action="/service-requests" method="POST")
+    div
+      label(for="Request_Type") Type:
+      input(type="text" name="Request_Type" id="Request_Type" required)
+
+    div
+      label(for="Request_Date") Date:
+      input(type="date" name="Request_Date" id="Request_Date" required)
+
+    div
+      label(for="Request_Location") Location:
+      input(type="text" name="Request_Location" id="Request_Location" required)
+
+    div
+      label(for="Pet_ID") Pet:
+      select(name="Pet_ID" id="Pet_ID")
+        each pet in pets
+          option(value=pet.Pet_ID)= pet.Pet_Name
+
+    div
+      label(for="Status") Status:
+      select(name="Status" id="Status")
+        option(value="Pending") Pending
+        option(value="Approved") Approved
+        option(value="Denied") Denied
+
+    button(type="submit") Submit
+    a.button(href="/service-requests") Cancel

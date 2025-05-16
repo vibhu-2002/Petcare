@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1 Edit Pet
+  form(method="POST", action=`/pets/${pet.Pet_ID}/edit`, enctype="multipart/form-data")
+    div
+      label(for="Pet_Name") Pet Name:
+      input(type="text", name="Pet_Name", id="Pet_Name", value=pet.Pet_Name required)
+
+    div
+      label(for="Pet_Type") Type:
+      input(type="text", name="Pet_Type", id="Pet_Type", value=pet.Pet_Type required)
+
+    div
+      label(for="Pet_Breed") Breed:
+      input(type="text", name="Pet_Breed", id="Pet_Breed", value=pet.Pet_Breed required)
+
+    div
+      label(for="petImage") Upload New Image (optional):
+      input(type="file", name="petImage", id="petImage")
+
+    if pet.Pet_Image
+      div
+        p Current Image:
+        img(src=pet.Pet_Image, alt=pet.Pet_Name, width="100", height="100", style="object-fit:cover; border-radius:50%")
+
+    div
+      button(type="submit") Update Pet

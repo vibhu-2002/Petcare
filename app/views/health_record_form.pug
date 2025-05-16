@@ -1,16 +1,16 @@
+//- views/health_record_form.pug
 extends layout
 
 block content
   h1= title
-  form(method="POST")
-    .form-group
-      label(for="date") Vaccination Date:
-      input(type="date" id="date" name="date" value=record.Vaccination_Date required)
-    .form-group
-      label(for="medication") Medication:
-      input(type="text" id="medication" name="medication" value=record.Medication)
-    .form-group
-      label(for="history") Medical History:
-      textarea(id="history" name="history")= record.Medical_History
-    button(type="submit") Save
-    a.button(href=`/pets/${pet.Pet_ID}/health-records`) Cancel
+  form(action=`/pets/${pet.Pet_ID}/health-records/new` method="POST")
+    div
+      label(for="date") Visit Date:
+      input(type="date", name="date", required)
+    div
+      label(for="diagnosis") Diagnosis:
+      input(type="text", name="diagnosis", required)
+    div
+      label(for="treatment") Treatment:
+      input(type="text", name="treatment", required)
+    button(type="submit") Submit

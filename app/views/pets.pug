@@ -2,10 +2,14 @@ extends layout
 
 block content
   h1 Pet List
+
   a.button(href="/pets/new") Add New Pet
+
+
   table
     thead
       tr
+        th Image
         th Pet Name
         th Type
         th Breed
@@ -14,11 +18,24 @@ block content
     tbody
       each pet in pets
         tr
+          td
+            if pet.Pet_Image
+              img(
+                src=pet.Pet_Image, 
+                alt=pet.Pet_Name, 
+                width="80", 
+                height="80", 
+                style="object-fit: cover; border-radius: 50%"
+              )
+            else
+              span No Image
           td= pet.Pet_Name
           td= pet.Pet_Type
           td= pet.Pet_Breed
           td= pet.User_name
           td
             a(href=`/pets/${pet.Pet_ID}`) View
+            |  
             a(href=`/pets/${pet.Pet_ID}/health-records`) Health
+            |  
             a(href=`/pets/${pet.Pet_ID}/edit`) Edit
